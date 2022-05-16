@@ -23,8 +23,18 @@ def lower_case(a1):
          else:
              continue;
      return c1
-a="Hello"
+def space_case(a1):
+    c2=0
+    for i in a1:
+        if(i.isspace()==True):
+            c2=c2+1
+        else:
+             continue;
+    return c2
+a="Hello  "
 b=upper_case(a)
-print(b)
+print("No Of Upper Case :",b)
 c=lower_case(a)
-print(c)
+print("No of Lower Case :",c)
+d=space_case(a)
+print("No of Spaces :",d)
