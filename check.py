@@ -31,10 +31,26 @@ def space_case(a1):
         else:
              continue;
     return c2
-a="Hello  "
+def special_case(a1):
+    c3=0
+    c4=0
+    c5=0
+    for i in a1:
+        if(i.isalnum()==True):
+            if(i.isdigit()==True):
+                c3=c3+1
+            else:
+                c4=c4+1
+        else:
+            c5=c5+1
+    print("No of digits :",c3)
+    print("No of Characters :",c4)
+    print("No of  Special Characters :",c5)
+a="Hello123  "
 b=upper_case(a)
 print("No Of Upper Case :",b)
 c=lower_case(a)
 print("No of Lower Case :",c)
 d=space_case(a)
 print("No of Spaces :",d)
+special_case(a)
