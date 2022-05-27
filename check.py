@@ -4,16 +4,20 @@ Created on Mon May 16 11:16:24 2022
 
 @author: alber
 """
-
+import pandas as pd
+import matplotlib.pyplot as pt
+l2=[]
+l3=[]
+l4=[]
+s=0
 def upper_case(a1):
      b=a1.upper()
      c=0
      for i in a1:
-         for j in b:
-             if(i==j):
-                 c=c+1
-             else:
-                  continue;
+         if(i.isupper()==True):
+             c=c+1
+         else:
+             continue;
      return c
 def lower_case(a1):
      c1=0
@@ -46,11 +50,39 @@ def special_case(a1):
     print("No of digits :",c3)
     print("No of Characters :",c4)
     print("No of  Special Characters :",c5)
-a="Hello123  "
-b=upper_case(a)
-print("No Of Upper Case :",b)
-c=lower_case(a)
-print("No of Lower Case :",c)
-d=space_case(a)
-print("No of Spaces :",d)
-special_case(a)
+f1=open("C:/Users/alber/Desktop/p1.txt","r")
+f2=f1.read()
+l1=f2.split()
+for i in l1:
+    print("Checking the Character is {}".format(i))
+    a=upper_case(i)
+    l2.append(a)
+    print("The No of Upper Case :{}".format(a))
+    c=lower_case(i)
+    l3.append(c)
+    print("No of Lower Case :",c)
+    d=space_case(i)
+    print("No of Spaces :",d)
+    special_case(i)
+f1.close()
+a1={"uppercase":l2,"Lowercase":l3}
+d1=pd.DataFrame(a1)
+print(d1)
+for i in l1:
+    s=s+1
+    l4.append(s)
+pt.subplot(1,2,1)
+pt.plot(l4,l2,marker='o',color="red")
+pt.xlabel("No Of Characters For Test")
+pt.ylabel("Upper Case")
+pt.title("Data Analysis Of Characters")
+pt.grid()
+pt.subplot(1,2,2)
+pt.plot(l4,l3,marker='o',color="blue")
+pt.xlabel("No Of Characters For Test")
+pt.ylabel("Lower  Case")
+pt.title("Data Analysis Of Characters")
+pt.grid()
+pt.show()
+    
+
